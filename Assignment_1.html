@@ -75,7 +75,7 @@ img {
 <div id="splitting-the-data" class="section level2">
 <h2>Splitting the Data</h2>
 <p>Since the data already been splitted into the testing set and training set, both the files are loaded separately. As we can see, there are 19622 rows and 160 columns of data available form the training data set and 20 rows and 160 columns of testing data set.</p>
-<pre class="r"><code>setwd(&quot;C:/Users/rohidah/Google Drive/3  Data Science/Practical Machine Learning&quot;)
+<pre class="r"><code>setwd(&quot;C:/Users/rohidah/Google Drive/3  Data Science/Practical-Machine-Learning&quot;)
 testingori &lt;- read.csv(&quot;pml-testing.csv&quot;, na.strings=c(&quot;NA&quot;,&quot;&quot;), strip.white=T)
 training &lt;- read.csv(&quot;pml-training.csv&quot;, na.strings=c(&quot;NA&quot;,&quot;&quot;), strip.white=T)
 dim(training)</code></pre>
@@ -137,33 +137,33 @@ confusionMatrix(testing$classe,predictionsB1)</code></pre>
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 1673    0    0    0    1
-##          B    6 1133    0    0    0
-##          C    0    1 1025    0    0
-##          D    0    0   10  953    1
-##          E    0    0    0    5 1077
+##          A 1674    0    0    0    0
+##          B   10 1126    3    0    0
+##          C    0    2 1024    0    0
+##          D    0    0   11  952    1
+##          E    0    0    1    4 1077
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9959          
-##                  95% CI : (0.9939, 0.9974)
-##     No Information Rate : 0.2853          
+##                Accuracy : 0.9946          
+##                  95% CI : (0.9923, 0.9963)
+##     No Information Rate : 0.2862          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.9948          
+##                   Kappa : 0.9931          
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9964   0.9991   0.9903   0.9948   0.9981
-## Specificity            0.9998   0.9987   0.9998   0.9978   0.9990
-## Pos Pred Value         0.9994   0.9947   0.9990   0.9886   0.9954
-## Neg Pred Value         0.9986   0.9998   0.9979   0.9990   0.9996
-## Prevalence             0.2853   0.1927   0.1759   0.1628   0.1833
-## Detection Rate         0.2843   0.1925   0.1742   0.1619   0.1830
+## Sensitivity            0.9941   0.9982   0.9856   0.9958   0.9991
+## Specificity            1.0000   0.9973   0.9996   0.9976   0.9990
+## Pos Pred Value         1.0000   0.9886   0.9981   0.9876   0.9954
+## Neg Pred Value         0.9976   0.9996   0.9969   0.9992   0.9998
+## Prevalence             0.2862   0.1917   0.1766   0.1624   0.1832
+## Detection Rate         0.2845   0.1913   0.1740   0.1618   0.1830
 ## Detection Prevalence   0.2845   0.1935   0.1743   0.1638   0.1839
-## Balanced Accuracy      0.9981   0.9989   0.9951   0.9963   0.9986</code></pre>
+## Balanced Accuracy      0.9970   0.9977   0.9926   0.9967   0.9990</code></pre>
 </div>
 <div id="accuracy-and-out-of-sample-error-estimate" class="section level2">
 <h2>Accuracy and Out-of-Sample Error Estimate</h2>
@@ -173,7 +173,11 @@ confusionMatrix(testing$classe,predictionsB1)</code></pre>
 <h2>Predicted Results</h2>
 <p>Finally, we We then run our model against the testing dataset and display the predicted results</p>
 <pre class="r"><code>testingori&lt;-testingori[,names(training[,-52])]
-predictionsB2&lt;-predict(modFitB1,testingori, type=&quot;class&quot;)</code></pre>
+predictionsB2&lt;-predict(modFitB1,testingori, type=&quot;class&quot;)
+predictionsB2</code></pre>
+<pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+## Levels: A B C D E</code></pre>
 </div>
 </div>
 

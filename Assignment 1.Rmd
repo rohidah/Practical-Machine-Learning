@@ -10,7 +10,7 @@ In this project, our goal will be to use data from accelerometers on the belt, f
 ##Splitting the Data 
 Since the data already been splitted into the testing set and training set, both the files are loaded separately. As we can see, there are 19622 rows and 160 columns of data available form the training data set and 20 rows and 160 columns of testing data set.
 ```{r}
-setwd("C:/Users/rohidah/Google Drive/3  Data Science/Practical Machine Learning")
+setwd("C:/Users/rohidah/Google Drive/3  Data Science/Practical-Machine-Learning")
 testingori <- read.csv("pml-testing.csv", na.strings=c("NA",""), strip.white=T)
 training <- read.csv("pml-training.csv", na.strings=c("NA",""), strip.white=T)
 dim(training)
@@ -84,6 +84,6 @@ Finally, we  We then run our model against the testing dataset and display the p
 ```{r}
 testingori<-testingori[,names(training[,-52])]
 predictionsB2<-predict(modFitB1,testingori, type="class")
-
+predictionsB2
 ```
 
